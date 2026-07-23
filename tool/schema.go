@@ -1,7 +1,7 @@
 package tool
 
 import (
-	"Golem/kernel/internal"
+	"Golem/internal"
 	"reflect"
 	"strings"
 )

@@ -24,3 +24,18 @@ func (r *Registry) Register(name, description string, fn any) error {
 	r.tools[name] = f
 	return nil
 }
+
+// List returns a slice of all registered tools in the registry.
+func (r *Registry) List() []*Tool {
+	out := make([]*Tool, 0, len(r.tools))
+	for _, tool := range r.tools {
+		out = append(out, tool)
+	}
+	return out
+}
+
+// Get retrieves a tool from the registry by its name. It returns the tool and a boolean indicating whether the tool was found in the registry.
+func (r *Registry) Get(name string) (*Tool, bool) {
+	tool, ok := r.tools[name]
+	return tool, ok
+}
